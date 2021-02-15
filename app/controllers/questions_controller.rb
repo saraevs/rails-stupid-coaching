@@ -3,14 +3,12 @@ class QuestionsController < ApplicationController
   end
 
   def answer
-    @answer
-
-    if params[:question] == 'I am going to work'
-      then @answer = 'Great!'
-    elsif params[:question][-1] == '?'
-      then @answer = 'Silly question, get dressed and go to work!'
+    @answer = if params[:question] == 'I am going to work'
+      then 'Great!'
+              elsif params[:question][-1] == '?'
+      then 'Silly question, get dressed and go to work!'
     else
-     @answer = "I don't care, get dressed and go to work!"
+      "I don't care, get dressed and go to work!"
     end
   end
 end
